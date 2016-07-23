@@ -1,0 +1,31 @@
+{
+  "name": "shux",
+  "version": "1.0.0",
+  "description": "Dating platform",
+  "main": "server/server.js",
+  "dependencies": {
+    "axios": "^0.13.1",
+    "basic-auth": "^1.0.4",
+    "cors": "^2.7.1",
+    "express": "^4.14.0",
+    "lodash": "^4.13.1",
+    "material-ui": "^0.15.2",
+    "morgan": "^1.7.0",
+    "mysql": "^2.11.1",
+    "passport": "^0.3.2",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "react-router": "^2.6.0",
+    "react-tap-event-plugin": "^1.0.0",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
+    "webpack": "^1.13.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joey Cursoli",
+  "license": "ISC"
+}
