@@ -18,5 +18,5 @@ var server = require('http').createServer(app);
 router(app);
 
 server.listen(port, function(){
-	console.log('Example app listening on port',port);
+	console.log('shux listening on port',port);
 });
