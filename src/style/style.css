@@ -1,0 +1,39 @@
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('//') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+@media screen and (max-width: 500px) { 
+  div{width:70%;} 
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url() #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
+.landing {
+  font-weight: 700;
+  font-family: sans-serif;
+  font-size: 7.143em;
+  color:white;
+}
+.content{
+  font-family: sans-serif;
+  margin-top: 20px;
+  text-align: center;
+  align-items: center;
+}
+.intro{
+  margin: 10px;
+  font-size: 4.143em;
+  color:white;
+}
