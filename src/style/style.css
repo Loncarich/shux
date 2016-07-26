@@ -25,7 +25,7 @@ video {
   font-family: sans-serif;
   font-size: 7.143em;
   color:white;
-}
+}s
 .content{
   font-family: sans-serif;
   margin-top: 20px;
@@ -34,6 +34,72 @@ video {
 }
 .intro{
   margin: 10px;
-  font-size: 4.143em;
+  font-size: 3.143em;
   color:white;
 }
+.page{
+  display: flex;
+  flex-direction: column;     
+  justify-content: center; 
+  align-items: center;    
+  width: auto;
+  height: 100vh;
+}
+.middle{
+  width: auto;
+  height:20px;
+}
+.info{
+  position: absolute;
+  height: 200px;
+  background: white;
+  width: 100vw;
+  bottom: 20;
+  left: 0;
+}
+.landingInfo{
+  display: flex;   
+  justify-content: center; 
+  align-items: center;    
+  margin:20;
+}
+.landingCategories{
+  display: flex;
+  flex-direction: column;     
+  justify-content: center; 
+  align-items: center;    
+}
+.landingInfoTitle{
+  display: flex;
+  flex-direction: row;
+  color:tomato;
+  font-size: 1.543em;
+}
+.infoTitle{
+  display: flex;
+  flex-direction: column;
+  margin:5px;
+  justify-content: center; 
+  align-items: center;
+}
+.category{
+  color:tomato;
+  font-size: 1.543em;
+  margin:5px;
+}
+.subCategory{
+  color: #565151;
+  font-size: 1.2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
