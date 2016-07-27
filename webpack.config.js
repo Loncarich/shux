@@ -8,8 +8,8 @@ module.exports = {
 	],
 	output:{
 		filename: 'bundle.js',
-		path: __dirname + '/src/build/',
-		publicPath: '/'
+		path: path.resolve(__dirname, "build"),
+		publicPath: '/build/'
 	},
 	plugins: [
     new webpack.HotModuleReplacementPlugin()
@@ -24,11 +24,15 @@ module.exports = {
 	    }
 	  ]
 	},
+	resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
 	devServer: {
 	  devtool: 'eval',
 	  hot: true,
 	  historyApiFallback: true,
 	  contentBase: './src',
+	  outputPath: './',
 	},
-	devtool: 'eval',
+	devtool: 'eval'
 }
