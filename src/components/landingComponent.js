@@ -8,19 +8,15 @@ class Landing extends Component{
 		this.handleOptions = this.handleOptions.bind(this);
 	}
 	handleOptions(){
-		console.log(window.clientHeight)
-		if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-		        // you're at the bottom of the page
-		    }
-
- if(document.body.scrollHeight > document.body.offsetHeight){
-		for(let i = 0; i < document.body.scrollHeight;i+=2){
+		var height = window.scrollY;
+ if(window.scrollY <= 30){
+		for(let i = 0; i < document.body.scrollHeight/2;i+=2){
 				setTimeout(()=>{window.scrollTo(0,i)},100+i)
 			}
 		}
-		else{
-			for(let i = document.body.scrollHeight; i > 0;i-=2){
-				setTimeout(()=>{window.scrollTo(0,i); console.log(document.body.scrollHeight,document.body.offsetHeight)},100+i)
+		else {
+			for(let j = document.body.scrollHeight; j >= 0; j-=2){
+				setTimeout(()=>{window.scrollTo(0,height-j)},100+j);
 			}
 		}
 	}
