@@ -12,6 +12,7 @@
     "material-ui": "^0.15.2",
     "morgan": "^1.7.0",
     "mysql": "^2.11.1",
+    "nodemon": "^1.10.0",
     "passport": "^0.3.2",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
@@ -34,7 +35,7 @@
   },
   "scripts": {
     "webpack-hot": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "start": "node server/server.js",
+    "start": "nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joey Cursoli",

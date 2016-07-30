@@ -8,6 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import App from './components/app';
 import Landing from './components/landingComponent';
+import Login from './components/auth/login'
 
 import reducers from './reducers';
 // import injectTapEventPlugin from "react-tap-event-plugin";
@@ -22,6 +23,7 @@ const store = createStoreWithMiddleware(reducers,window.devToolsExtension ? wind
 				<Router history={browserHistory}>
 					<Route path='/' component={App}>
 						<IndexRoute component={Landing} />
+						<Route path="login" component={Login} />
 					</Route>
 				</Router>
 			</MuiThemeProvider>
