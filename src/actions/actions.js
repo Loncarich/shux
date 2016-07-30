@@ -5,12 +5,20 @@ import {
   REMOVE_ERROR
 } from './actionTypes';
 
-export function loginUser({email, username}){
-	dispatch({ type: AUTH_USER });
+
+export function loginUser({...userInfo}){
+	return function(dispatch){
+		dispatch({ type: AUTH_USER });
+	}
 }
 export function signupUser({email, username, password}){
-	dispatch({ type: AUTH_USER });
+	return function(dispatch){
+		dispatch({ type: AUTH_USER });
+	}
 }
 export function logoutUser({email, username, password}){
-	dispatch({ type: AUTH_USER });
+	return{
+		type: UNAUTH_USER,
+		payload:{}
+	}
 }

@@ -15,22 +15,30 @@ class Login extends Component {
 	}
 
 	render(){
-		const {fields: {username, password}, handleSubmit, errors} = this.props;
+		const {fields: {username, email, password, confirm}, handleSubmit, errors} = this.props;
 		return (
 			<div className="loginAuth">
-			<h2 className="hTwo active"> signin </h2>
-				<h2 className="hTwo nonactive"> 
-					<Link to={`/signup`}>Signup</Link>
-				</h2>
+				<h2 className="hTwo nonactive"><Link to={`login`}>Signin</Link> </h2>
+				<h2 className="hTwo active"> Signup </h2>
 				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 	       <div className='unit'>
 	         <label className='labelAuth' for="username">Username</label>
 	         <input className="text inputAuth" id="username" type="text" placeholder="username" {...username}/>
 	       </div>
 	       <div className='unit'>
+	         <label className='labelAuth' for="email">Email</label>
+	         <input className="text inputAuth" id="email" type="email" placeholder="Email" {...email}/>
+	         <div className='error'>{errors.email ? errors.email : ''}</div>
+	       </div>
+	       <div className='unit'>
 	         <label className='labelAuth' for="password">password</label>
 	         <input className="text inputAuth" id="password" type="password" placeholder="password" {...password}/>
 	         <div className='error'>{errors.password && password.touched && errors.password}</div>
+	       </div>
+	       <div className='unit'>
+	         <label className='labelAuth' for="confirm">Confirm Password</label>
+	         <input className="text inputAuth" id="confirm" type="password" placeholder="confirm" {...confirm}/>
+	         	<div className='error'>{errors.confirm && confirm.touched && confirm.onBlur && errors.confirm}</div>
 	       </div>
 	       <button className="signin" type="submit">Submit</button>
 				</form>
@@ -46,14 +54,25 @@ function mapStateToProps(state){
 
 function validate(values) {
   const errors = {};
+  if (!values.email) {
+    errors.email = 'Required';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+  }
   if (!values.password) {
     errors.password = 'Required';
   } 
+  if(values.password !== values.confirm){
+  	errors.confirm = 'Passwords do not match';
+  }
+   if(values.password&&values.password.length < 5){
+		errors.password = 'Password needs to be at least 6 charachters!';
+  }
   return errors;
 }
 
 export default reduxForm({
   form: 'login',
-  fields: ['password', 'username'],
+  fields: ['email','password', 'confirm', 'username'],
   validate
 }, mapStateToProps, actions)(Login);

@@ -9,14 +9,16 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import App from './components/app';
 import Landing from './components/landingComponent';
 import Login from './components/auth/login'
+import Signup from './components/auth/signup'
 
 import reducers from './reducers';
-// import injectTapEventPlugin from "react-tap-event-plugin";
-// injectTapEventPlugin();
+import {persistStore, autoRehydrate} from 'redux-persist'
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
-const store = createStoreWithMiddleware(reducers,window.devToolsExtension ? window.devToolsExtension() : f => f);
+const store = createStoreWithMiddleware(reducers,window.devToolsExtension ? window.devToolsExtension() : f => f,autoRehydrate());
+persistStore(store);
+
 	ReactDOM.render(
   	<Provider store={store}>
   		<MuiThemeProvider muiTheme={getMuiTheme()}>
@@ -24,6 +26,7 @@ const store = createStoreWithMiddleware(reducers,window.devToolsExtension ? wind
 					<Route path='/' component={App}>
 						<IndexRoute component={Landing} />
 						<Route path="login" component={Login} />
+						<Route path="signup" component={Signup} />
 					</Route>
 				</Router>
 			</MuiThemeProvider>
