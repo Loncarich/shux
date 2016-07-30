@@ -1,11 +1,16 @@
 import Expand from 'material-ui/svg-icons/navigation/expand-more';
 import React, {Component} from 'react';
+import { Link, browserHistory } from 'react-router';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
-class Landing extends Component{
+class Landing extends Component {
 	constructor(props){
 		super(props);
 		this.state = {};
 		this.handleOptions = this.handleOptions.bind(this);
+		this.handleSignin = this.handleSignin.bind(this);
+		this.handleSignUp = this.handleSignUp.bind(this);
 	}
 	handleOptions(){
 		var height = window.scrollY;
@@ -20,6 +25,12 @@ class Landing extends Component{
 			}
 		}
 	}
+	handleSignin(){
+		browserHistory.push('/login')
+	}
+	handleSignUp(){
+		browserHistory.push('/login')
+	}
 	render(){
 		return (
 			<div style={{height:'130%'}}>
@@ -32,7 +43,15 @@ class Landing extends Component{
 							<div className='landing'>Shux</div>
 							<div className='intro'>The Place to Meet People Like You</div>
 						</div>
-						<Expand style={{color:'white', marginTop:'50px', height:'70px', width:'70px'}} onClick={this.handleOptions}/>
+						<div className='buttons'>
+							<button onClick={this.handleSignin} className ='authButtons'>
+								Login
+							</button>
+							<button onClick={this.handleSignUp} className ='authButtons'> 
+								Signup
+							</button>
+						</div>
+						<Expand className='showMore' style={{color:'white', marginTop:'50px', height:'70px', width:'70px'}} onClick={this.handleOptions}/>
 					</div>
 				</div>
 				<div className='info'>
@@ -41,7 +60,7 @@ class Landing extends Component{
 								<div className='category'>Account</div>
 								<div className='subCategory'>
 									<div>Signup</div>
-									<div>Login</div>
+									<div>Signup</div>
 								</div>
 							</div>
 						<div className='infoTitle box'>

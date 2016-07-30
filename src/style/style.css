@@ -22,17 +22,18 @@ video {
 }
 .landing {
   font-weight: 700;
-  font-family: sans-serif;
+  font-family: 'Architects Daughter', cursive;
   font-size: 7.143em;
   color:white;
 }s
 .content{
-  font-family: sans-serif;
+  font-family: 'Architects Daughter', cursive;
   margin-top: 20px;
   text-align: center;
   align-items: center;
 }
 .intro{
+  font-family: 'Architects Daughter', cursive;
   margin: 10px;
   font-size: 3.143em;
   color:white;
@@ -86,20 +87,100 @@ video {
   color:tomato;
   font-size: 1.543em;
   margin:5px;
+  font-family: 'Varela Round', sans-serif;
 }
 .subCategory{
   color: #565151;
   font-size: 1.2em;
+  font-family: 'Varela Round', sans-serif;
+}
+.showMore{
+  cursor: pointer;
+}
+.showMore:hover{
+
+}
+.buttons{
+  display: flex;
+  flex-direction: row;
+  font-size: 1.543em;
+  align-items: center;
+  justify-content: center;
+}
+.authButtons{
+  background: #F55959;
+  border: none;
+  height:70px;
+  width:165px;
+  border-radius: 10px;
+  margin:20px;
+  font-size: 1.243em;
+  color:white;
+  border: none;
+  cursor: pointer;
+  outline-style: none;
+  font-family: 'Architects Daughter', cursive;
+}
+.authButtons:hover{
+ 
+
+}
+.main{
+  width:auto;
+}
+/*start of login and signup*/
+.loginAuth{
+  width:auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.543em;
+  align-items: center;
+  justify-content: center;
+}
+  .hTwo{
+  padding-left: 12px;
+  font-size: 22px;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  letter-spacing: 2px;
+  display: inline-block;
+  font-weight: 100;
+}
+.unit{
+  /*display: flex;
+  flex-direction: column;*/
+  margin:10px;
+  alignment-baseline: 
+}
+.active {
+  border-bottom: 2px solid #1161ed;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.nonactive {
+  color: rgba(255, 255, 255, 0.2);
+}
+.inputAuth{
+  height:30px;
+  width: 500px;
+  outline-style: none;
+  border-radius: 15px;
+  border: none;
+  padding: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background: #D3D3D3;
+  font-size: 1.243em;
+  margin:10px;
+}
+.error{
+  display: inline-block;
+  width: 140px;
+  color:red;
+  font-size: .7em;
+}
+.labelAuth{
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+}
