@@ -8,11 +8,11 @@ module.exports =  {
 	},
 	//send email auth to user
 	sendMessage: function(req,res,next){
-		console.log('these are my config keys', EnvConfig.api_key)
+		//console.log('this is the signup user info',req.body.email)
 		var key = makeKey();
 		var data = {
 		  from: 'Shuggz <info@shuggz.com>',
-		  to: 'joeycursoli2@gmail.com',
+		  to: req.body.email,
 		  subject: 'Hello',
 		  text: 'To get started enter this key in your Shuggz Page : '+ key
 		};

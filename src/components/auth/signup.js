@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import redux, {connect} from 'redux';
 import {reduxForm} from 'redux-form';
 import * as actions from '../../actions/actions.js';
-import {Link} from 'react-router'
-
+import {Link} from 'react-router';
 
 
 class Login extends Component {
@@ -18,29 +17,27 @@ class Login extends Component {
 		const {fields: {username, email, password, confirm}, handleSubmit, errors} = this.props;
 		return (
 			<div className="loginAuth">
-				<h2 className="hTwo nonactive"><Link to={`login`}>Signin</Link> </h2>
-				<h2 className="hTwo active"> Signup </h2>
+				<div className='top'>
+					<h2 className="hTwo nonactive"><Link to={`login`}>Signin</Link> </h2>
+					<h2 className="hTwo active"> Signup </h2>
+				</div>
 				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 	       <div className='unit'>
-	         <label className='labelAuth' for="username">Username</label>
-	         <input className="text inputAuth" id="username" type="text" placeholder="username" {...username}/>
+	         <input className="text inputAuth" id="username" type="text" placeholder="Username" {...username}/>
 	       </div>
 	       <div className='unit'>
-	         <label className='labelAuth' for="email">Email</label>
 	         <input className="text inputAuth" id="email" type="email" placeholder="Email" {...email}/>
 	         <div className='error'>{errors.email ? errors.email : ''}</div>
 	       </div>
 	       <div className='unit'>
-	         <label className='labelAuth' for="password">password</label>
-	         <input className="text inputAuth" id="password" type="password" placeholder="password" {...password}/>
+	         <input className="text inputAuth" id="password" type="password" placeholder="Password" {...password}/>
 	         <div className='error'>{errors.password && password.touched && errors.password}</div>
 	       </div>
 	       <div className='unit'>
-	         <label className='labelAuth' for="confirm">Confirm Password</label>
-	         <input className="text inputAuth" id="confirm" type="password" placeholder="confirm" {...confirm}/>
+	         <input className="text inputAuth" id="confirm" type="password" placeholder="Confirm" {...confirm}/>
 	         	<div className='error'>{errors.confirm && confirm.touched && confirm.onBlur && errors.confirm}</div>
+	         	<button className="authButton" type="submit">Submit</button>
 	       </div>
-	       <button className="signin" type="submit">Submit</button>
 				</form>
 			</div>
 		)
