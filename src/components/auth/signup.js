@@ -11,7 +11,7 @@ class Login extends Component {
 		super(props);
 	}
 	handleFormSubmit({...args}){
-		this.props.loginUser(args);
+		this.props.signupUser(args);
 	}
 
 	render(){
