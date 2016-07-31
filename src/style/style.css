@@ -208,7 +208,7 @@ a:visited{
   z-index: 99999;
   transition: opacity 1s ease-in;
   pointer-events: auto;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 .container {
   display: flex;

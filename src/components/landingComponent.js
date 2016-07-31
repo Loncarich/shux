@@ -26,6 +26,11 @@ class Landing extends Component {
 			}
 		}
 	}
+	close(e) {
+		if(e.target.className === 'modal'){
+			this.setState({option:''});
+		}
+	}
 	handleSignin(){
 		this.setState({option:'signin'});
 	}
@@ -34,7 +39,7 @@ class Landing extends Component {
 	}
 	render(){
 		return (
-			<div style={{height:'130%'}}>
+			<div onClick={this.close.bind(this)} style={{height:'130%'}}>
 				<video autoPlay poster="https://i.vimeocdn.com/video/582542548.webp?mw=2700&mh=990&q=70" id="bgvid" loop>
 				<source src="https://player.vimeo.com/external/175644724.hd.mp4?s=31f8ca986fad5a38f4ef8ee587db52b4a59109b1&profile_id=174" type="video/mp4" />
 				</video>
