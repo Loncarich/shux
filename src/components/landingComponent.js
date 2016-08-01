@@ -3,18 +3,19 @@ import React, {Component} from 'react';
 import { Link, browserHistory } from 'react-router';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import Modal from './modalComponent';
 
 class Landing extends Component {
 	constructor(props){
 		super(props);
-		this.state = {};
+		this.state = {option: ''};
 		this.handleOptions = this.handleOptions.bind(this);
 		this.handleSignin = this.handleSignin.bind(this);
 		this.handleSignUp = this.handleSignUp.bind(this);
 	}
 	handleOptions(){
 		var height = window.scrollY;
- if(window.scrollY <= 30){
+ 		if(window.scrollY <= 30){
 		for(let i = 0; i < document.body.scrollHeight/2;i+=2){
 				setTimeout(()=>{window.scrollTo(0,i)},100+i)
 			}
@@ -25,22 +26,34 @@ class Landing extends Component {
 			}
 		}
 	}
+	close(e){
+		if(e.target.className === 'modal'){
+			this.setState({option:''});
+		} 
+		else if(Array.from(e.target.classList).indexOf('nonactive') >= 0){
+			if(this.state.option === 'signin') {
+				this.setState({option:'signup'});
+			} else {
+				this.setState({option:'signin'});
+			}
+		}
+	}
 	handleSignin(){
-		browserHistory.push('/login')
+		this.setState({option:'signin'});
 	}
 	handleSignUp(){
-		browserHistory.push('/login')
+		this.setState({option:'signup'});
 	}
 	render(){
 		return (
-			<div style={{height:'130%'}}>
+			<div onClick={this.close.bind(this)} style={{height:'130%'}}>
 				<video autoPlay poster="https://i.vimeocdn.com/video/582542548.webp?mw=2700&mh=990&q=70" id="bgvid" loop>
 				<source src="https://player.vimeo.com/external/175644724.hd.mp4?s=31f8ca986fad5a38f4ef8ee587db52b4a59109b1&profile_id=174" type="video/mp4" />
 				</video>
 				<div className='page center-xs'>
 					<div className='col-xs-12 col-sm-8 col-md-6 col-lg-4'>
 						<div className='content'>
-							<div className='landing'>Shux</div>
+							<div className='landing'>Shuggz</div>
 							<div className='intro'>The Place to Meet People Like You</div>
 						</div>
 						<div className='buttons'>
@@ -60,7 +73,7 @@ class Landing extends Component {
 								<div className='category'>Account</div>
 								<div className='subCategory'>
 									<div>Signup</div>
-									<div>Signup</div>
+									<div>Login</div>
 								</div>
 							</div>
 						<div className='infoTitle box'>
@@ -86,6 +99,7 @@ class Landing extends Component {
 							</div>
 						</div>
 					</div>
+					<Modal item={this.state.option}/>
 				</div>
 			</div>
 		)
