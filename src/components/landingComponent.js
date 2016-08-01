@@ -15,7 +15,7 @@ class Landing extends Component {
 	}
 	handleOptions(){
 		var height = window.scrollY;
- if(window.scrollY <= 30){
+ 		if(window.scrollY <= 30){
 		for(let i = 0; i < document.body.scrollHeight/2;i+=2){
 				setTimeout(()=>{window.scrollTo(0,i)},100+i)
 			}
@@ -26,9 +26,16 @@ class Landing extends Component {
 			}
 		}
 	}
-	close(e) {
+	close(e){
 		if(e.target.className === 'modal'){
 			this.setState({option:''});
+		} 
+		else if(Array.from(e.target.classList).indexOf('nonactive') >= 0){
+			if(this.state.option === 'signin') {
+				this.setState({option:'signup'});
+			} else {
+				this.setState({option:'signin'});
+			}
 		}
 	}
 	handleSignin(){

@@ -12,14 +12,13 @@ class Login extends Component {
 	handleFormSubmit({...args}){
 		this.props.signupUser(args);
 	}
-
 	render(){
 		const {fields: {username, email, password, confirm}, handleSubmit, errors} = this.props;
 		return (
 			<div className="loginAuth">
 				<div className='top'>
-					<h2 className="hTwo nonactive"><Link to={`login`}>Signin</Link> </h2>
-					<h2 className="hTwo active"> Signup </h2>
+					<h2 className="hTwo nonactive">Signin</h2>
+					<h2 className="hTwo active">Signup</h2>
 				</div>
 				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 	       <div className='unit'>

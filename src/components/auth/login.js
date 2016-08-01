@@ -18,22 +18,23 @@ class Login extends Component {
 		const {fields: {username, password}, handleSubmit, errors} = this.props;
 		return (
 			<div className="loginAuth">
-			<h2 className="hTwo active"> signin </h2>
-				<h2 className="hTwo nonactive"> 
-					<Link to={`/signup`}>Signup</Link>
-				</h2>
+			<div className='top'>
+				<h2 className="hTwo active">signin</h2>
+				<h2 className="hTwo nonactive">Signup</h2>
+			</div>
 				<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 	       <div className='unit'>
-	         <label className='labelAuth' for="username">Username</label>
-	         <input className="text inputAuth" id="username" type="text" placeholder="username" {...username}/>
+	         <input className="text inputAuth" id="username" type="text" placeholder="Username" {...username}/>
 	       </div>
 	       <div className='unit'>
-	         <label className='labelAuth' for="password">password</label>
-	         <input className="text inputAuth" id="password" type="password" placeholder="password" {...password}/>
+	         <input className="text inputAuth" id="password" type="password" placeholder="Password" {...password}/>
 	         <div className='error'>{errors.password && password.touched && errors.password}</div>
 	       </div>
-	       <button className="signin" type="submit">Submit</button>
+	       <button className="authButton" type="submit">Submit</button>
 				</form>
+				<div>
+					<div className= 'help'>Forgot password?</div>
+				</div>
 			</div>
 		)
 	}

@@ -8,7 +8,9 @@ class Modal extends Component {
 		this.state = {option: ''};
 	}
   render(){
+  	console.log(this.props.item)
   	if(this.props.item === 'signup'){
+  		console.log('inside the modal singnup')
 	    return(
 		    <div className='modal'>
 		      <div className='container'>
@@ -18,9 +20,10 @@ class Modal extends Component {
 	    )
   	}
   	else if(this.props.item === 'signin'){
+  		console.log('inside the modal singin')
 	    return(
 		    <div className='modal'>
-		      <div className='container'>
+		      <div className='loginContainer'>
 		      	<Signin />
 		      </div>
 		    </div>
